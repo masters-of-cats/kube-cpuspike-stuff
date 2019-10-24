@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sleep-labelled
+  labels:
+    qos: dynamic
+spec:
+  nodeName: gke-cpu-default-pool-d831038a-7xfz
+  containers:
+  - name: ubuntu
+    image: ubuntu
+    resources:
+      requests:
+        cpu: 100m
+    args: ["/bin/bash", "-c", "while true; do sleep 1; done "]
+
